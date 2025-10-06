@@ -28,7 +28,7 @@
     <form id="city-input-form" class="form">
       <div class="input__field">
         <label for="city">Название города</label>
-        <input class="input" name="city" placeholder="Введите название города" />
+        <input class="input" name="city" placeholder="Введите название города" required />
       </div>
       <button id="submit-button" class="button" type="submit">Прогноз на 24 часа</button>
     </form>
@@ -51,8 +51,6 @@
         try {
           const formData = new FormData(cityForm)
           const city = formData.get('city')
-
-          if (!city) return alert('Введите название города')
 
           const weatherData = await fetchWeather(city)
 
