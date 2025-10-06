@@ -65,7 +65,6 @@
 
       async function fetchWeather(city) {
         const response = await fetch(`/weather?city=${encodeURIComponent(city)}`)
-        if (!response.ok) throw new Error('Ошибка сети')
 
         const data = await response.json()
         if (data.error) throw new Error(data.error)
