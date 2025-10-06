@@ -2,7 +2,6 @@
   "compilerOptions": {
     "module": "NodeNext",
     "rootDir": "src",
-    "outDir": "dist",
     "strict": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -17,11 +16,4 @@
       ]
     }
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
 }

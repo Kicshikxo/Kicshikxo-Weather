@@ -1,29 +1,25 @@
 {
   "name": "kicshikxo-weather",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
+  "keywords": [],
+  "license": "WTFPL",
+  "author": "",
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/main.ts",
-    "start": "node dist/main.js",
-    "prebuild": "tsc",
-    "build": "tsc-alias"
+    "start": "tsx src/main.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "axios": "1.12.2",
     "express": "5.1.0",
     "openmeteo": "1.2.1",
     "redis": "5.8.3",
-    "typescript": "5.9.3"
+    "tsx": "4.20.6"
   },
   "devDependencies": {
     "@types/axios": "0.9.36",
     "@types/express": "5.0.3",
-    "@types/node": "24.6.2",
-    "tsc-alias": "1.8.16",
-    "tsx": "4.20.6"
+    "@types/node": "24.6.2"
   }
 }
