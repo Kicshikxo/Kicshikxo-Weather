@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Простой прогноз погоды с использованием API OpenMeteo." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link
+      rel="preload"
+      href="/fonts/Rubik-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/rubik.fontface.css" />
+
+    <title>Kicshikxo weather</title>
+
+    <script src="/assets/js/chart.js"></script>
+  </head>
+  <body>
+    <form id="city-input-form" class="form">
+      <div class="input__field">
+        <label for="city">Название города</label>
+        <input class="input" name="city" placeholder="Введите название города" />
+      </div>
+      <button id="submit-button" class="button" type="submit">Прогноз на 24 часа</button>
+    </form>
+
+    <div class="chart-wrapper">
+      <canvas id="weather-chart"></canvas>
+    </div>
+
+    <script>
+      const cityForm = document.querySelector('#city-input-form')
+      const submitButton = document.querySelector('#submit-button')
+      const weatherChart = document.querySelector('#weather-chart')
+
+      let chartInstance = null
+
+      cityForm.addEventListener('submit', async (event) => {
+        event.preventDefault()
+
+        submitButton.disabled = true
+        try {
+          const formData = new FormData(cityForm)
+          const city = formData.get('city')
+
+          if (!city) return alert('Введите название города')
+
+          const weatherData = await fetchWeather(city)
+
+          cityForm.reset()
+
+          renderChart(weatherData)
+        } catch (error) {
+          alert(error.message)
+        } finally {
+          submitButton.disabled = false
+        }
+      })
+
+      async function fetchWeather(city) {
+        const response = await fetch(`/weather?city=${encodeURIComponent(city)}`)
+        if (!response.ok) throw new Error('Ошибка сети')
+
+        const data = await response.json()
+        if (data.error) throw new Error(data.error)
+
+        return data
+      }
+
+      function renderChart(weatherData) {
+        const labels = weatherData.hourly.time.map((date) =>
+          new Date(date).toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }),
+        )
+        const data = weatherData.hourly.temperature_2m
+
+        if (chartInstance) {
+          chartInstance.destroy()
+        }
+
+        chartInstance = new Chart(weatherChart, {
+          type: 'line',
+          data: {
+            labels,
+            datasets: [
+              {
+                label: weatherData.city,
+                data,
+                borderColor: 'rgb(81, 162, 255)',
+                backgroundColor: 'rgb(81, 162, 255, 0.2)',
+                tension: 0.3,
+                fill: true,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                ticks: {
+                  callback: (value) => `${value}°C`,
+                },
+              },
+            },
+          },
+        })
+      }
+    </script>
+  </body>
+</html>
