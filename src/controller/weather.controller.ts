@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { getCityWeather } from '~/service/weather.service'
+import { getCityWeather } from '~/service/weather.service.js'
 
 export async function weatherController(request: Request, response: Response) {
   const city = request.query.city as string

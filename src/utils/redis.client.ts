@@ -3,7 +3,7 @@ import { createClient } from 'redis'
 const redisClient = createClient({
   url: process.env.REDIS_URL,
 })
-redisClient.on('error', (error) => console.error('Redis client error', error))
+redisClient.on('error', (error) => console.error('Redis', error))
 
 export async function connectRedisClient() {
   await redisClient.connect()

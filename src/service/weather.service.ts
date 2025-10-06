@@ -1,6 +1,6 @@
 import { fetchWeatherApi } from 'openmeteo'
-import { getCityGeocoding } from '~/service/geocoding.service'
-import { getRedisCache, setRedisExpiredCache } from '~/utils/redis.client'
+import { getCityGeocoding } from '~/service/geocoding.service.js'
+import { getRedisCache, setRedisExpiredCache } from '~/utils/redis.client.js'
 
 const WEATHER_CACHE_TTL_SECONDS = 15 * 60
 

@@ -1,10 +1,10 @@
 import express from 'express'
 import path from 'path'
-import weatherRouter from '~/route/weather.route'
+import weatherRouter from '~/route/weather.route.js'
 
 const app = express()
 
-app.use(express.static(path.join(import.meta.dirname, 'public')))
+app.use(express.static(path.join(path.dirname(import.meta.url), 'public')))
 
 app.use(weatherRouter)
 

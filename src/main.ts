@@ -1,5 +1,5 @@
-import app from '~/server'
-import { connectRedisClient } from '~/utils/redis.client'
+import app from '~/server.js'
+import { connectRedisClient } from '~/utils/redis.client.js'
 
 const PORT = process.env.PORT || 3000
 
