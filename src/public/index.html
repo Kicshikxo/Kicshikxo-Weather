@@ -44,6 +44,22 @@
 
       let chartInstance = null
 
+      window.addEventListener('load', async () => {
+        const urlParams = new URLSearchParams(window.location.search)
+        const initialCity = urlParams.get('city')
+
+        if (initialCity) {
+          submitButton.disabled = true
+          try {
+            const weatherData = await fetchWeather(initialCity)
+
+            renderChart(weatherData)
+          } finally {
+            submitButton.disabled = false
+          }
+        }
+      })
+
       cityForm.addEventListener('submit', async (event) => {
         event.preventDefault()
 
@@ -51,6 +67,9 @@
         try {
           const formData = new FormData(cityForm)
           const city = formData.get('city')
+
+          const newUrl = `${window.location.pathname}?city=${encodeURIComponent(city)}`
+          window.history.replaceState({}, '', newUrl)
 
           const weatherData = await fetchWeather(city)
 
