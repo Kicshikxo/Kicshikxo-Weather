@@ -24,7 +24,7 @@ Kicshikxo weather - это простой сервис для отображен
 
 ## Попробовать прямо сейчас
 
-Используйте Kicshikxo Weather прямо в браузере:
+Используйте Kicshikxo weather прямо в браузере:
 
 - [weather.kicshikxo.ru](https://weather.kicshikxo.ru)
 
