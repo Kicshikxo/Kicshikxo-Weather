@@ -1,18 +1,18 @@
 <p align="center">
-  <a href="https://github.com/Kicshikxo/Kicshikxo-weather">
-    <img src="https://github.com/Kicshikxo/Kicshikxo-weather/blob/main/src/public/favicon.svg" alt="Logo" width="80" height="80">
+  <a href="https://github.com/Kicshikxo/Kicshikxo-Weather">
+    <img src="https://github.com/Kicshikxo/Kicshikxo-Weather/blob/main/src/public/favicon.svg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Kicshikxo weather</h3>
+  <h3 align="center">Kicshikxo Weather</h3>
 
   <p align="center">
     Простой вывод прогноза погоды с использованием API OpenMeteo
   </p>
 </p>
 
-### <p align="center">[![Stargazers](https://img.shields.io/github/stars/Kicshikxo/Kicshikxo-weather?style=social)](https://github.com/Kicshikxo/Kicshikxo-weather) ![License](https://img.shields.io/github/license/Kicshikxo/Kicshikxo-weather)</p>
+### <p align="center">[![Stargazers](https://img.shields.io/github/stars/Kicshikxo/Kicshikxo-Weather?style=social)](https://github.com/Kicshikxo/Kicshikxo-Weather) ![License](https://img.shields.io/github/license/Kicshikxo/Kicshikxo-Weather)</p>
 
-Kicshikxo weather - это простой сервис для отображения прогноза погоды на следующие 24 часа для указанного города.
+Kicshikxo Weather - это простой сервис для отображения прогноза погоды на следующие 24 часа для указанного города.
 Сервис использует открытое API [Open-Meteo](https://open-meteo.com), кэширует данные в Redis и отображает температуру на графике.
 
 Основные функции:
@@ -24,13 +24,14 @@ Kicshikxo weather - это простой сервис для отображен
 
 ## Попробовать прямо сейчас
 
-Используйте Kicshikxo weather прямо в браузере:
+Используйте Kicshikxo Weather прямо в браузере:
 
 - [weather.kicshikxo.ru](https://weather.kicshikxo.ru)
 
 ## Используемые технологии
 
 Проект построен с использованием следующих технологий:
+
 - **Backend**: Node.js, TypeScript, Express
 - **Frontend**: HTML, CSS, JS, Chart.js
 - **Кэширование**: Redis
@@ -47,11 +48,12 @@ redis-server
 ### Клонирование репозитория
 
 ```bash
-git clone https://github.com/Kicshikxo/Kicshikxo-weather.git
-cd Kicshikxo-weather
+git clone https://github.com/Kicshikxo/Kicshikxo-Weather.git
+cd Kicshikxo-Weather
 ```
 
 ### Установка зависимостей
+
 ```bash
 npm install
 ```
@@ -80,4 +82,4 @@ npm run start
 
 ## Лицензия
 
-Распространяется по лицензии WTFPL. Смотрите [LICENSE](https://github.com/Kicshikxo/Kicshikxo-weather/blob/main/LICENSE) для большей информации.
+Распространяется по лицензии WTFPL. Смотрите [LICENSE](https://github.com/Kicshikxo/Kicshikxo-Weather/blob/main/LICENSE) для большей информации.
